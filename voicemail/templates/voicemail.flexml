@@ -1,0 +1,4 @@
+<Response>
+    <Say voice="{{ voice_type }}">{{ greeting_message }}</Say>
+    <Record direction="in" callbackUrl="/api/send_voicemail/?email={{ email }}" action="/api/voicemail/goodbye/?message={{ goodbye_message }}"{% for attribute, value in record_attrs.items %} {{ attribute }}="{{ value }}"{% endfor %}></Record>
+</Response>

@@ -1,0 +1,4 @@
+[smtp]
+server = ""
+port = 0
+from_addr = ""

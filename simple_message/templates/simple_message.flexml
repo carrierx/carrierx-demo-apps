@@ -1,0 +1,9 @@
+<Response>
+    {% for message in items %}
+        {% if message.is_url %}
+            <Play>{{ message.item }}</Play>
+        {% else %}
+            <Say voice="{{ voice_type }}">{{ message.item }}</Say>
+        {% endif %}
+    {% endfor %}
+</Response>

@@ -1,0 +1,7 @@
+<Response>
+  <Gather numDigits="1" action="/api/simple_menu/redirect/?{{ options }}">
+    <Say>{{ instructions }}</Say>
+  </Gather>
+<Say>You did not choose any options, redial to repeat the menu</Say>
+<HangUp/>
+</Response>

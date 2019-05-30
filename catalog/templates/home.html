@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="Tryport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>
+        {% block title %}
+            No-code CarrierX Apps
+        {% endblock %}
+    </title>
+    <style>
+        .feather {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="py-4 text-center">
+        <h1 class="text-center">No-code CarrierX Apps</h1>
+    </div>
+    {% block content %}
+    <hr>
+        <div class="row">
+            <div class="col">
+                <p class="lead text-center pt-3">Generate URLs and small portions of code that enable you to easily learn and implement basic voice apps.</p>
+                <div class="card-deck py-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Concurrent Calls</h5>
+                            <p class="card-text">Dial two to five phone numbers simultaneously. The first person to answer is connected to the caller. If nobody answers, the call is forwarded to another URL for more FlexML instructions.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/concurrent_calls" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Simple Message</h5>
+                            <p class="card-text">Play one or more audio files and/or speak text.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/simple_message" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck py-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Simple Menu</h5>
+                            <p class="card-text">Play a message for the caller, wait for DTMF input, and direct the call to another URL for more FlexML instructions based on their DTMF input.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/simple_menu" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Voicemail</h5>
+                            <p class="card-text">Ask the caller to leave a voice message. The audio recording of the voice message will then be sent to a specified email address.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/voicemail" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Forward</h5>
+                            <p class="card-text">Forward a call to another phone number or URL for more FlexML instructions, given that the initial call is not answered or the line is busy.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/forward" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</div>
+
+{% include "js-imports.html" %}
+{% block extra_js %}
+{% endblock %}
+</body>
+</html>

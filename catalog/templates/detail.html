@@ -1,0 +1,85 @@
+{% extends "home.html" %}
+{% block title %}
+    {{ natural_flexiapp_name }}
+{% endblock %}
+{% block content %}
+    <nav aria-label="breadcrumb" class="pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'catalog:main' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ natural_flexiapp_name }}</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md">
+            <h3>{{ natural_flexiapp_name|capfirst }}</h3>
+            {% block description %}
+                {% lorem 3 %}
+            {% endblock %}
+        </div>
+        <div class="col-md">
+            <form method="get" action="/api/{{ flexiapp_name }}/">
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                        <div class="form-row">
+                            {{ field }}
+                        </div>
+                        <small id="{{ field.name }}Help" class="form-text text-muted">{{ field.help_text }}
+                        </small>
+                    </div>
+                {% endfor %}
+                <button class="btn btn-outline-primary mt-3">Generate the URL <i data-feather="link"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row pb-3">
+        <div class="col-md">
+            <h3 class="pt-md-3">Active URL</h3>
+            <div class="card">
+                <div class="card-body">
+                    <a id="sample_link"><code>This is where your URL will be displayed.</code></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <h3 class="pt-md-3">FlexML</h3>
+            <div class="card">
+                <div class="card-body">
+                    <pre lang="xml"><code>This is where your FlexML will be displayed.</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script>
+        $("body").on("submit", "form", function (event) {
+            event.preventDefault();
+            let data = $(this).serialize();
+            let resulting_link = $(this).attr("action") + "?" + data;
+            $("#sample_link").text(window.location.protocol + '//' + window.location.host + resulting_link).attr("href", resulting_link);
+            $.get($(this).attr("action"), data, function (responseText) {
+                $('code').html(responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+            });
+        });
+        function make_multipliable() {
+            let $inputGroup = $(this).parent();
+            $inputGroup.parent().addClass("entry");
+            $inputGroup.removeClass("form-row").addClass("input-group");
+            $(this).after('<div class="input-group-append">' +
+                '<button type="button" class="btn btn-outline-secondary btn-add"><i data-feather="plus" /></button>' +
+                '</div>');
+        }
+
+        $(document).ready(function () {
+            $(".js-multipliable-field").each(make_multipliable);
+            feather.replace();
+        });
+    </script>
+{% endblock %}
+

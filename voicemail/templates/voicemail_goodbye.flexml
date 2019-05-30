@@ -1,0 +1,4 @@
+<Response>
+    <Say voice="{{ voice_sex }}">{{ message }}</Say>
+    <HangUp/>
+</Response>
