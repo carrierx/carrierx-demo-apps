@@ -5,14 +5,25 @@ PHONE_VALIDATION_PATTERN = r"^\d{11}$"
 
 
 class CallTreatmentForm(forms.Form):
-    reason = forms.CharField(
+    reason = forms.ChoiceField(
         label="Reject reason",
-        widget=forms.TextInput(attrs={"class": "form-control"}),
+        widget=forms.Select(attrs={"class": "form-control"}),
         help_text="Enter the reason for rejecting a call.",
+        choices=(
+            ("busy", "Busy"),
+            ("busy-here", "Busy here"),
+            ("decline", "Decline"),
+            ("does-not-exist", "Does not exist"),
+            ("forbidden", "Forbidden"),
+            ("rejected", "Rejected"),
+            ("not-found", "Not found"),
+            ("redirect", "Redirect"),
+        ),
+        initial="rejected",
         required=False,
     )
     text_or_audio = forms.CharField(
-        label="",
+        label="Text or URL to answer",
         widget=forms.TextInput(attrs={"class": "form-control"}),
         help_text="Enter the string to say, or the URL to play.",
         required=False,
