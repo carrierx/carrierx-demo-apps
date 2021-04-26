@@ -4,5 +4,5 @@ from . import views
 app_name = "simple_menu"
 urlpatterns = [
     path("", views.start, name="main"),
-    path("redirect/", views.redirect, name="redirect")
+    path("redirect/", views.redirect, name="redirect"),
 ]

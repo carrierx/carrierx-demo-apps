@@ -22,14 +22,9 @@ def send_email(subject: str, to_addr: str, body_text: str):
     host = cfg.get("smtp", "server")
     port = cfg.get("smtp", "port")
     from_addr = cfg.get("smtp", "from_addr")
-    BODY = "\r\n".join((
-        f"From: {from_addr}",
-        f"To: {to_addr}",
-        f"Subject: {subject}",
-        "",
-        body_text
-    ))
+    BODY = "\r\n".join(
+        (f"From: {from_addr}", f"To: {to_addr}", f"Subject: {subject}", "", body_text)
+    )
     server = smtplib.SMTP(host, port=int(port))
     server.sendmail(from_addr, [to_addr], BODY)
     server.quit()
-
