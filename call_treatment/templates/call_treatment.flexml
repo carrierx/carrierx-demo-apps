@@ -1,0 +1,7 @@
+<Response>
+    {% if text_or_audio %}<PreAnswer>
+        {% if text_or_audio.is_url %}<Play>{{ text_or_audio.value }}</Play> {% else %}<Say voice="female">{{ text_or_audio.value }}</Say>{% endif %}
+    </PreAnswer>{% endif %}
+    {% if reason %}<Reject reason="{{ reason }}"></Reject>{% endif %}
+    {% if not text_or_audio and not reason %}<Hangup/>{% endif %}
+</Response>

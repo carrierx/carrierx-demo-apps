@@ -1,5 +1,7 @@
 .idea/
+.vscode/
 email.ini
 venv/
+env/
 __pycache__/
 /db.sqlite3

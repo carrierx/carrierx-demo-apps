@@ -62,7 +62,7 @@
             event.preventDefault();
             let data = $(this).serialize();
             let resulting_link = $(this).attr("action") + "?" + data;
-            $("#sample_link").text(window.location.protocol + '//' + window.location.host + resulting_link).attr("href", resulting_link);
+            $("#sample_link").text(window.location.protocol + '//' + window.location.host + resulting_link).attr("href", resulting_link.replace(/(csrfmiddlewaretoken=).*?(&)/, ''));
             $.get($(this).attr("action"), data, function (responseText) {
                 $('code').html(responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
             });
