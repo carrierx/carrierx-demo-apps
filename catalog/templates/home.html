@@ -3,12 +3,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="Tryport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="icon" type="image/x-icon" href="https://www.carrierx.com/favicon.ico"/>
+    {% load static %}
     <title>
         {% block title %}
             No-code CarrierX Apps
@@ -27,6 +28,7 @@
     </style>
 </head>
 <body class="bg-light">
+<a href="https://github.com/carrierx/carrierx-demo-apps"><img width="149" height="149" src="{% static "img/fork_me.png" %}" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 <div class="container">
     <div class="py-4 text-center">
         <h1 class="text-center">No-code CarrierX Apps</h1>
@@ -53,6 +55,15 @@
                         </div>
                         <div class="card-footer">
                             <a href="/simple_message" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Call treatment</h5>
+                            <p class="card-text">Reject call or play audio / speak text.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/call_treatment" class="card-link float-right">Try</a>
                         </div>
                     </div>
                 </div>
@@ -82,6 +93,26 @@
                         </div>
                         <div class="card-footer">
                             <a href="/forward" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck py-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Routing Engine</h5>
+                            <p class="card-text">Logic engine for External Routing feature of CarrierX Switch.  Supports least-cost routing, margin protection, and rate ceilings.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/routing_engine" class="card-link float-right">Try</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">vCon Proxy</h5>
+			                <p class="card-text">Create a forwarder that records all of your conversations and uploads a vCon to a Conserver.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/vcon_proxy" class="card-link float-right">Try</a>
                         </div>
                     </div>
                 </div>

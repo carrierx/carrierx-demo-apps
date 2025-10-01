@@ -16,10 +16,13 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('catalog.urls')),
-    path('api/voicemail/', include('voicemail.urls')),
-    path('api/concurrent_calls/', include('concurrent_calls.urls')),
-    path('api/forward/', include('forward.urls')),
-    path('api/simple_message/', include('simple_message.urls')),
-    path('api/simple_menu/', include('simple_menu.urls'))
+    path("", include("catalog.urls")),
+    path("api/voicemail/", include("voicemail.urls")),
+    path("api/concurrent_calls/", include("concurrent_calls.urls")),
+    path("api/forward/", include("forward.urls")),
+    path("api/simple_message/", include("simple_message.urls")),
+    path("api/simple_menu/", include("simple_menu.urls")),
+    path("api/call_treatment/", include("call_treatment.urls")),
+    path("api/routing_engine/", include("routing_engine.urls")),
+    path("api/vcon_proxy/", include("vcon_proxy.urls")),
 ]

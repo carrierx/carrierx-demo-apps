@@ -1,4 +1,7 @@
 <Response>
+    {% if notify_on_key %}
+        <Gather action="{% url 'digits' %}?{{ request.GET.urlencode }}" numDigits="1" timeout="5" validDigits="{{ notify_on_key }}">
+    {% endif %}
     {% for message in items %}
         {% if message.is_url %}
             <Play>{{ message.item }}</Play>
@@ -6,4 +9,7 @@
             <Say voice="{{ voice_type }}">{{ message.item }}</Say>
         {% endif %}
     {% endfor %}
-</Response>
+    {% if notify_on_key %}
+        </Gather>
+    {% endif %}
+ </Response>

@@ -1,4 +1,4 @@
 <Response>
-    <Say voice="{{ voice_sex }}">{{ message }}</Say>
+    {% if message.is_url %}<Play>{{ message.content }}</Play>{% else %}<Say voice="{{ voice_type }}">{{ message.content }}</Say>{% endif %}
     <HangUp/>
 </Response>

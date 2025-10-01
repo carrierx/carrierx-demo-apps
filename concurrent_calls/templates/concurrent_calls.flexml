@@ -1,5 +1,5 @@
 <Response>
-  <Dial{% for attribite, value in dial_attrs.items %} {{ attribite }}="{{ value }}"{% endfor %}>
+  <Dial{% for attr, value in dial_attrs.items %} {{ attr }}="{{ value }}"{% endfor %}>
     {% for phone_number in phone_numbers %}
         <Number>{{ phone_number }}</Number>
     {% endfor %}
