@@ -3,7 +3,7 @@
 ```shell
 git clone https://github.com/carrierx/carrierx-demo-apps.git
 cd carrierx-demo-apps
-python3.6 -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
