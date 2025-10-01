@@ -11,9 +11,8 @@
     </nav>
     <div class="row">
         <div class="col-md">
-            <h3>{{ natural_flexiapp_name|capfirst }}</h3>
+            <h3>{{ natural_flexiapp_name|capfirst }} <a class="btn btn-outline-primary" href="https://github.com/carrierx/carrierx-demo-apps/tree/master/{{ flexiapp_name }}" target="_blank">See the code</a></h3>
             {% block description %}
-                {% lorem 3 %}
             {% endblock %}
         </div>
         <div class="col-md">
@@ -43,6 +42,7 @@
                 </div>
             </div>
         </div>
+        {% block example %}
         <div class="col-md">
             <h3 class="pt-md-3">FlexML</h3>
             <div class="card">
@@ -51,6 +51,7 @@
                 </div>
             </div>
         </div>
+        {% endblock example %}
     </div>
     <div class="row">
         <div class="col"></div>
@@ -62,7 +63,7 @@
             event.preventDefault();
             let data = $(this).serialize();
             let resulting_link = $(this).attr("action") + "?" + data;
-            $("#sample_link").text(window.location.protocol + '//' + window.location.host + resulting_link).attr("href", resulting_link);
+            $("#sample_link").text(window.location.protocol + '//' + window.location.host + resulting_link.replace(/(csrfmiddlewaretoken=).*?(&)/, '')).attr("href", resulting_link.replace(/(csrfmiddlewaretoken=).*?(&)/, ''));
             $.get($(this).attr("action"), data, function (responseText) {
                 $('code').html(responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
             });

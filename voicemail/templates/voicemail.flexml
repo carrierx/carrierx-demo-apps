@@ -1,4 +1,9 @@
 <Response>
-    <Say voice="{{ voice_type }}">{{ greeting_message }}</Say>
-    <Record direction="in" callbackUrl="/api/send_voicemail/?email={{ email }}" action="/api/voicemail/goodbye/?message={{ goodbye_message }}"{% for attribute, value in record_attrs.items %} {{ attribute }}="{{ value }}"{% endfor %}></Record>
+    <Store name="email">{{ email }}</Store>
+    <Store name="email_subject">{{ email_subject }}</Store>
+    <Store name="message">{{ goodbye_message }}</Store>
+    <Store name="voice_type">{{ voice_type }}</Store>
+    <Store name="file_format">{{ file_format }}</Store>
+    {% if greeting_message.is_url %}<Play>{{ greeting_message.content }}</Play>{% else %}<Say voice="{{ voice_type }}">{{ greeting_message.content }}</Say>{% endif %}
+    <Record direction="in" callbackUrl="/api/voicemail/send/" action="/api/voicemail/goodbye/" {% for attribute, value in record_attrs.items %} {{ attribute }}="{{ value }}"{% endfor %}></Record>
 </Response>

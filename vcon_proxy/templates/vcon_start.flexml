@@ -1,0 +1,8 @@
+<Response>
+  <Store name="conserver">{{ conserver }}</Store>
+  <Store name="conserver_api_token">{{ conserver_api_token }}</Store>
+  <Store name="transcribe">{{ transcribe }}</Store>
+  <Store name="transcribe_api_token">{{ transcribe_api_token }}</Store>
+  <Record recordSession="true" recordingStatusCallback="/api/vcon_proxy/end/" timeout="28800" fileFormat="mp3" direction="any" />
+  <Dial>{{ dst }}</Dial>
+</Response>

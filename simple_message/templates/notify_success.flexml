@@ -1,0 +1,7 @@
+<Response>
+    {% if message.is_url %}
+        <Play>{{ message.item }}</Play>
+    {% else %}
+        <Say voice="{{ voice_type }}">{{ message.item }}</Say>
+    {% endif %}
+</Response>
